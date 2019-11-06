@@ -40,9 +40,13 @@ while true; do
     # Right Align
     output="${output}%{r} "
     # Time
-    time=$(date | cut -d " " -f 5)
+    #12 hour time
+    #time=$(date | cut -d " " -f 5)
+    #time=$(date + "%r")
+    #24 hour time
+    time=$(date +"%T")
     output="${output}%{F#888888}%{F#505050}${time//:/%\{F\#888888\}:%\{F\#505050\}}"
 
     echo " ${output} ";sleep $DELAY;
-done | lemonbar -f "DejaVu Sans Mono:size=8" -d -g 220x20+845+1052 -B \#ffffff -F \#888888 | /bin/zsh
+done | lemonbar -f "DejaVu Sans Mono:size=8" -d -g 225x20+845+1052 -B \#ffffff -F \#888888 | /bin/zsh
 
